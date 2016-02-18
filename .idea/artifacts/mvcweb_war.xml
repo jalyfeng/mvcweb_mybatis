@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="mvcweb:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="mvcweb.war">
+      <element id="artifact" artifact-name="mvcweb:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - mybatis@localhost" uuid="ca758c14-9c10-4707-9cee-1753504de2cd">
+    <database-info product="MySQL" version="5.7.10" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <schema name="" catalog="mybatis"/>
+    <table name="tb_user" schema="" catalog="mybatis" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5Li76ZSu" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" remarks="55So5oi35ZCN"/>
+      <column name="password" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" remarks="5a+G56CB"/>
+      <column name="email" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12" remarks="6YKu5Lu2"/>
+      <column name="age" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" remarks="5bm06b6E"/>
+      <column name="sex" sqlType="CHAR" precision="2" scale="0" nullable="false" jdbcType="1" remarks="5oCn5Yir"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="username" unique="true" columns="username"/>
+    </table>
+  </data-source>
+</component>

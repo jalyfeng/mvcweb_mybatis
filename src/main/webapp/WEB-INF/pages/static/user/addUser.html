@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输入用户信息</title>
+    <script src="/static/public/js/jquery-1.12.0.min.js"></script>
+    <script src="/static/public/js/jquery-migrate-1.2.1.min.js"></script>
+
+</head>
+<body>
+<h1>输入用户信息</h1>
+<form name="userForm" action="/api/input" style="width: 400px">
+    <a>用户名：</a><input name="username"></br>
+    <a>密码：</a> <input name="password"></br>
+    <a>邮箱：</a><input name="email"></br>
+    <a>年龄：</a><input name="age"></br>
+    <a>性别</a><select name="sex">
+    <option value="0">男</option>
+    <option value="1">女</option>
+    </select></br>
+
+</form>
+<input name="submitInput" type="submit" value="添加"/>
+<script>
+    $(document).ready(function(){
+        $("input[name=submitInput]").attr("disabled","disabled");
+        $("input[name=submitInput]").bind("click",function(){
+           $(this).attr("disabled","disabled");
+            $.ajax({
+                url:"/api/user/addUser",
+                method:"POST",
+                data:$("form[name=userForm]").serializeArray()
+
+            }).done(function (data){
+                if(data.status==0){
+                    $("input[name=submitInput]").removeAttr("disabled");
+                    alert("添加成功");
+                }else{
+                    alert(data.error);
+                }
+            }).fail(function (data){
+                alert("请求错误了");
+            })
+
+        })
+
+        $("input[name=username]").bind("focusout",function(){
+            $("input[name=submitInput]").attr("disabled","disabled");
+            var username=$(this).val();
+            if(username.length>0){
+                $.ajax({
+                    url:"/api/user/checkUser",
+                    method:"POST",
+                    data:"username="+username
+
+                }).done(function(data){
+                    if(data.status==0){
+                        $("input[name=submitInput]").removeAttr("disabled");
+                    }else{
+                        alert(data.error);
+                    }
+
+                }).fail(function(data){
+                    alert("请求错误了");
+                })
+            }
+
+        })
+    })
+
+</script>
+</body>
+</html>
