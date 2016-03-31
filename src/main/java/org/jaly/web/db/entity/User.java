@@ -1,12 +1,10 @@
 package org.jaly.web.db.entity;
 
 
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
-import org.hibernate.validator.constraints.Range;
+import org.hibernate.validator.constraints.*;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 public class User {
     /**
@@ -23,7 +21,8 @@ public class User {
      *
      * @mbggenerated Thu Feb 18 10:30:57 CST 2016
      */
-    @Length(min=6,message = "{user.username.length}")
+    @NotBlank(message = "{user.username.empty}")
+    @Length(min=2,message = "{user.username.length}")
     private String username;
 
     /**
@@ -32,6 +31,7 @@ public class User {
      *
      * @mbggenerated Thu Feb 18 10:30:57 CST 2016
      */
+    @NotBlank(message = "{user.password.empty}")
     @Length(min=6,message = "{user.password.length}")
     private String password;
 
@@ -41,6 +41,8 @@ public class User {
      *
      * @mbggenerated Thu Feb 18 10:30:57 CST 2016
      */
+    @NotBlank(message = "{user.email.empty}")
+    @Email(message = "{user.email.message}")
     private String email;
 
     /**
@@ -49,7 +51,8 @@ public class User {
      *
      * @mbggenerated Thu Feb 18 10:30:57 CST 2016
      */
-    @Range(min = 10, max = 120,message = "{user.age_range}")
+    @NotNull(message = "{user.age.empty}")
+    @Range(min = 10, max = 120,message = "{user.age.range}")
     private Integer age;
 
     /**
@@ -58,6 +61,8 @@ public class User {
      *
      * @mbggenerated Thu Feb 18 10:30:57 CST 2016
      */
+    @NotBlank(message = "{user.sex.empty}")
+    @Length(min = 1,max = 1, message = "{user.sex.length}")
     private String sex;
 
     /**
