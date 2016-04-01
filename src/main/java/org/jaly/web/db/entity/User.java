@@ -3,7 +3,6 @@ package org.jaly.web.db.entity;
 
 import org.hibernate.validator.constraints.*;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 public class User {

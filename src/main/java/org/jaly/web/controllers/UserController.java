@@ -7,7 +7,6 @@ import org.jaly.web.model.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,7 +40,7 @@ public class UserController {
         }else{
             UserExample userExample=new UserExample();
             userExample.createCriteria().andUsernameEqualTo(username);
-            List list= userMapper.selectByExample(userExample);
+            List<User> list= userMapper.selectByExample(userExample);
             if(list!=null && list.size()>0){
                 //存在
                 response.setError("当前用户已经存在");

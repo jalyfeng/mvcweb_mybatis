@@ -1,7 +1,5 @@
 package org.jaly.web.model;
 
-import java.util.Objects;
-
 /**
  * Created by daboowifi on 16/2/18.
  */
